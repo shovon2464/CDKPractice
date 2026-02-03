@@ -1,5 +1,5 @@
 {
-  "app": "mvn -e -q compile exec:java",
+  "app": "mvn -q -e -DskipTests exec:java -Dexec.mainClass=com.myorg.AppApp",
   "watch": {
     "include": [
       "**"
