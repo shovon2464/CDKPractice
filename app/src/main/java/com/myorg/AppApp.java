@@ -25,6 +25,8 @@ public class AppApp {
         .tags(infraTags)
         .build();
 
+    EcrStack ecrStack = new EcrStack(app, "Ecr", props);
+
     VpcStack vpcStack = new VpcStack(app, "Vpc", props);
 
     app.synth();
