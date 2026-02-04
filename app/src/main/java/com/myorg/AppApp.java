@@ -29,6 +29,15 @@ public class AppApp {
 
     VpcStack vpcStack = new VpcStack(app, "Vpc", props);
 
+    ClusterStack clusterStack = new ClusterStack(app, "Cluster", props, new ClusterStackProps(vpcStack.getVpc()));
+    clusterStack.addDependency(vpcStack);
+
+    NlbStack nlbStack = new NlbStack(app, "Nlb", props, new ClusterStackProps(vpcStack.getVpc()));
+
+    nlbStack.addDependency(vpcStack);
+
+
+
     app.synth();
   }
 }
